@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>zend-mvc-plugin-fileprg</h1>
+    
+    <p>Post/Redirect/Get plugin with file upload handling for zend-mvc controllers.</p>
+
+    <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-fileprg</code></pre>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class="panel-title">Installation</h2>
+        </div>
+
+        <div class="panel-body">
+          <p>
+            Install via composer:
+          </p>
+
+          <pre><code class="lang-bash" data-trim>
+$ composer require zendframework/zend-mvc-plugin-fileprg
+          </code></pre>
+
+          <p>
+            If you are using the <a href="https://zendframework.github.io/zend-component-installer">zend-component-installer</a>,
+            you're done!
+          </p>
+
+          <p>
+            If not, you will need to add the component as a module to your
+            application. Add the entry <code>'Zend\Mvc\Plugin\FilePrg'</code> to
+            your list of modules in your application configuration (typically
+            one of <code>config/application.config.php</code> or
+            <code>config/modules.config.php</code>).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h2>Usage</h2>
+
+      <p>
+        While similar to the <a
+          href="https://zendframework.github.io/zend-mvc-plugin-prg">Post/Redirect/Get
+          Plugin</a>, the File PRG Plugin will work for forms with file inputs.
+        The difference is in the behavior: The File PRG Plugin will interact
+        directly with your form instance and the file inputs, rather than
+        <em>only</em> returning the POST params from the previous request.
+      </p>
+
+      <p>
+        By interacting directly with the form, the File PRG Plugin will turn off any
+        file inputs <code>required</code> flags for already uploaded files (for a partially valid
+        form state), as well as run the file input filters to move the uploaded files
+        into a new location (configured by the user).
+      </p>
+
+      <blockquote>
+        <h3>Files must be relocated on upload</h3>
+        
+        <p>
+          You <strong>must</strong> attach a filter for moving the uploaded files to a new location, such as the
+          <a href="https://zendframework.github.io/zend-filter/file/#renameupload">RenameUpload Filter</a>,
+          or else your files will be removed upon the redirect.
+        </p>
+      </blockquote>
+
+      <p>
+        This plugin is invoked with three arguments:
+      </p>
+
+      <ul>
+        <li><code>$form</code>: the <code>Zend\Form\Form</code> instance.</li>
+        <li><code>$redirect</code>: (Optional) a string containing the redirect
+          location, which can either be a named route or a URL, based on the
+          contents of the third parameter. If this argument is not provided, it
+          will default to the current matched route.</li>
+        <li><code>$redirectToUrl</code>: (Optional) a boolean that when set to
+          <code>TRUE</code>, causes the second parameter to be treated as a URL
+          instead of a route name (this is required when redirecting to a URL
+          instead of a route). This argument defaults to
+          <code>FALSE</code>.</li>
+      </ul>
+
+      <h3>Example Usage</h3>
+
+      <pre><code class="lang-php" data-trim>
+$myForm = new Zend\Form\Form('my-form');
+$myForm->add([
+    'type' => 'Zend\Form\Element\File',
+    'name' => 'file',
+]);
+
+// NOTE: Without a filter to move the file,
+//       our files will disappear between the requests
+$myForm->getInputFilter()->getFilterChain()->attach(
+    new Zend\Filter\File\RenameUpload([
+        'target'    => './data/tmpuploads/file',
+        'randomize' => true,
+    ])
+);
+
+// Pass in the form and optional the route/url you want to redirect to after the POST
+$prg = $this->fileprg($myForm, '/user/profile-pic', true);
+
+if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
+    // Returned a response to redirect us.
+    return $prg;
+}
+
+if ($prg === false) {
+    // First time the form was loaded.
+    return array('form' => $myForm);
+}
+
+// Form was submitted.
+// $prg is now an array containing the POST params from the previous request,
+// but we don't have to apply it to the form since that has already been done.
+
+// Process the form
+if ($form->isValid()) {
+    // ...Save the form...
+    return $this->redirect()->toRoute('/user/profile-pic/success');
+}
+
+// Form not valid, but file uploads might be valid and uploaded
+$fileErrors = $form->get('file')->getMessages();
+if (empty($fileErrors)) {
+    $tempFile = $form->get('file')->getValue();
+}
+      </code></pre>
+    </div>
+  </div>
+</div>
