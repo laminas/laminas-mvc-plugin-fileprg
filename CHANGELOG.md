@@ -2,7 +2,9 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 0.1.1 - TBD
+## 1.0.0 - 2016-05-31
+
+First stable release.
 
 ### Added
 
@@ -18,7 +20,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#2](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/2) pins the
+  component to stable zend-mvc v3 versions, and marks a conflict with zend-mvc
+  v2 versions.
 
 ## 0.1.0 - 2016-03-29
 
