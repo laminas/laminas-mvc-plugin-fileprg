@@ -47,7 +47,6 @@
             "@cs-check",
             "@test"
         ],
-        "upload-coverage": "coveralls",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "test": "phpunit",
