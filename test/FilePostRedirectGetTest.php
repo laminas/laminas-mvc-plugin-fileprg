@@ -13,7 +13,6 @@ use Zend\Http\Request;
 use Zend\Http\Response;
 use Zend\InputFilter\InputFilter;
 use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
 use Zend\Router\Exception\RuntimeException;
 use Zend\Router\SimpleRouteStack;
 use Zend\Stdlib\Parameters;
