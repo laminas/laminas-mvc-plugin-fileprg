@@ -27,7 +27,7 @@ trait CommonSetupTrait
     public $response;
     public $collection;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->form = new Form();
 

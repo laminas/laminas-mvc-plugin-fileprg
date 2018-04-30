@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
     <h1>zend-mvc-plugin-fileprg</h1>
-    
+
     <p>Post/Redirect/Get plugin with file upload handling for zend-mvc controllers.</p>
 
     <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-fileprg</code></pre>
@@ -26,7 +26,7 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
           </code></pre>
 
           <p>
-            If you are using the <a href="https://zendframework.github.io/zend-component-installer">zend-component-installer</a>,
+            If you are using the <a href="https://docs.zendframework.com/zend-component-installer">zend-component-installer</a>,
             you're done!
           </p>
 
@@ -46,7 +46,7 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
 
       <p>
         While similar to the <a
-          href="https://zendframework.github.io/zend-mvc-plugin-prg">Post/Redirect/Get
+          href="https://docs.zendframework.com/zend-mvc-plugin-prg">Post/Redirect/Get
           Plugin</a>, the File PRG Plugin will work for forms with file inputs.
         The difference is in the behavior: The File PRG Plugin will interact
         directly with your form instance and the file inputs, rather than
@@ -62,10 +62,10 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
 
       <blockquote>
         <h3>Files must be relocated on upload</h3>
-        
+
         <p>
           You <strong>must</strong> attach a filter for moving the uploaded files to a new location, such as the
-          <a href="https://zendframework.github.io/zend-filter/file/#renameupload">RenameUpload Filter</a>,
+          <a href="https://docs.zendframework.com/zend-filter/file/#renameupload">RenameUpload Filter</a>,
           or else your files will be removed upon the redirect.
         </p>
       </blockquote>
