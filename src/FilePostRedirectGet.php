@@ -85,7 +85,7 @@ class FilePostRedirectGet extends AbstractPlugin
         // Run the form validations/filters and retrieve any errors
         $isValid = $form->isValid();
         $data    = $form->getData(FormInterface::VALUES_AS_ARRAY);
-        $errors  = (!$isValid) ? $form->getMessages() : null;
+        $errors  = (! $isValid) ? $form->getMessages() : null;
 
         // Merge and replace previous files with new valid files
         $prevFileData = $this->getEmptyUploadData($inputFilter, $previousFiles);
@@ -210,7 +210,7 @@ class FilePostRedirectGet extends AbstractPlugin
     {
         $returnValues = null;
         foreach ($values as $name => $value) {
-            if (!$inputFilter->has($name)) {
+            if (! $inputFilter->has($name)) {
                 continue;
             }
 
@@ -274,7 +274,7 @@ class FilePostRedirectGet extends AbstractPlugin
                 $messages = $input->getMessages();
                 if (is_array($value) && $input instanceof FileInput && empty($messages)) {
                     $rawValue = $input->getRawValue();
-                    if ((isset($rawValue['error'])    && $rawValue['error']    === UPLOAD_ERR_NO_FILE)
+                    if ((isset($rawValue['error'])    && $rawValue['error'] === UPLOAD_ERR_NO_FILE)
                         || (isset($rawValue[0]['error']) && $rawValue[0]['error'] === UPLOAD_ERR_NO_FILE)
                     ) {
                         return $value;

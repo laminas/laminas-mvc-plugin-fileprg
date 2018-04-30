@@ -24,7 +24,6 @@ class TestFieldset extends Fieldset implements InputFilterProviderInterface
             'name' => 'file',
             'type' => 'file',
         ]);
-
     }
 
     public function getInputFilterSpecification()
