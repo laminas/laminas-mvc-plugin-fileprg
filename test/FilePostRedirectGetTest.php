@@ -7,13 +7,12 @@
 
 namespace ZendTest\Mvc\Plugin\FilePrg;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Form\Form;
 use Zend\Http\Request;
 use Zend\Http\Response;
 use Zend\InputFilter\InputFilter;
 use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
 use Zend\Router\Exception\RuntimeException;
 use Zend\Router\SimpleRouteStack;
 use Zend\Stdlib\Parameters;
@@ -79,7 +78,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->controller->dispatch($this->request, $this->response);
         $plugin = $this->plugin;
 
-        $this->setExpectedException(RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $prgResultRoute = $plugin($this->form, 'some/route');
     }
 
