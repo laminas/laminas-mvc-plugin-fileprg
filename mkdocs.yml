@@ -1,8 +1,9 @@
 docs_dir: docs/book
 site_dir: docs/html
-pages:
-    - index.md
+nav:
+    - Home: index.md
 site_name: zend-mvc-plugin-fileprg
-site_description: 'zend-mvc-plugin-fileprg: Post-Redirect-Get controller plugin specifically for zend-mvc, specifically for handling file uploads'
+site_description: 'Post/Redirect/Get plugin with file upload handling for zend-mvc controllers'
 repo_url: 'https://github.com/zendframework/zend-mvc-plugin-fileprg'
-copyright: 'Copyright (c) 2005-2018 <a href="https://www.zend.com/">Zend Technologies USA Inc.</a>'
+extra:
+    show_special_homepage: true
