@@ -1,21 +1,22 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-fileprg for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-fileprg for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\Plugin\FilePrg;
+namespace LaminasTest\Mvc\Plugin\FilePrg;
 
-use Zend\Form\Element\Collection;
-use Zend\Form\Form;
-use Zend\Http\Request;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet;
-use Zend\Router\Http\Literal as LiteralRoute;
-use Zend\Router\Http\Segment as SegmentRoute;
-use Zend\Router\RouteMatch;
-use Zend\Router\SimpleRouteStack;
+use Laminas\Form\Element\Collection;
+use Laminas\Form\Form;
+use Laminas\Http\Request;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\Plugin\FilePrg\FilePostRedirectGet;
+use Laminas\Router\Http\Literal as LiteralRoute;
+use Laminas\Router\Http\Segment as SegmentRoute;
+use Laminas\Router\RouteMatch;
+use Laminas\Router\SimpleRouteStack;
 
 trait CommonSetupTrait
 {
@@ -57,7 +58,7 @@ trait CommonSetupTrait
         $router->addRoute('ctl', SegmentRoute::factory([
             'route' => '/ctl/:controller',
             'defaults' => [
-                '__NAMESPACE__' => 'ZendTest\Mvc\Controller\TestAsset',
+                '__NAMESPACE__' => 'LaminasTest\Mvc\Controller\TestAsset',
             ]
         ]));
 

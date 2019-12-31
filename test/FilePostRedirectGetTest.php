@@ -1,22 +1,23 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-fileprg for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-fileprg for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Mvc\Plugin\FilePrg;
+namespace LaminasTest\Mvc\Plugin\FilePrg;
 
+use Laminas\Form\Form;
+use Laminas\Http\Request;
+use Laminas\Http\Response;
+use Laminas\InputFilter\InputFilter;
+use Laminas\Mvc\ModuleRouteListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\Exception\RuntimeException;
+use Laminas\Router\SimpleRouteStack;
+use Laminas\Stdlib\Parameters;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\Form\Form;
-use Zend\Http\Request;
-use Zend\Http\Response;
-use Zend\InputFilter\InputFilter;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\Exception\RuntimeException;
-use Zend\Router\SimpleRouteStack;
-use Zend\Stdlib\Parameters;
 
 class FilePostRedirectGetTest extends TestCase
 {

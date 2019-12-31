@@ -1,10 +1,10 @@
 <div class="container">
   <div class="jumbotron">
-    <h1>zend-mvc-plugin-fileprg</h1>
+    <h1>laminas-mvc-plugin-fileprg</h1>
     
-    <p>Post/Redirect/Get plugin with file upload handling for zend-mvc controllers.</p>
+    <p>Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers.</p>
 
-    <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-fileprg</code></pre>
+    <pre><code class="language-bash">$ composer require laminas/laminas-mvc-plugin-fileprg</code></pre>
   </div>
 </div>
 
@@ -22,17 +22,17 @@
           </p>
 
           <pre><code class="lang-bash" data-trim>
-$ composer require zendframework/zend-mvc-plugin-fileprg
+$ composer require laminas/laminas-mvc-plugin-fileprg
           </code></pre>
 
           <p>
-            If you are using the <a href="https://zendframework.github.io/zend-component-installer">zend-component-installer</a>,
+            If you are using the <a href="https://docs.laminas.dev/laminas-component-installer">laminas-component-installer</a>,
             you're done!
           </p>
 
           <p>
             If not, you will need to add the component as a module to your
-            application. Add the entry <code>'Zend\Mvc\Plugin\FilePrg'</code> to
+            application. Add the entry <code>'Laminas\Mvc\Plugin\FilePrg'</code> to
             your list of modules in your application configuration (typically
             one of <code>config/application.config.php</code> or
             <code>config/modules.config.php</code>).
@@ -46,7 +46,7 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
 
       <p>
         While similar to the <a
-          href="https://zendframework.github.io/zend-mvc-plugin-prg">Post/Redirect/Get
+          href="https://docs.laminas.dev/laminas-mvc-plugin-prg">Post/Redirect/Get
           Plugin</a>, the File PRG Plugin will work for forms with file inputs.
         The difference is in the behavior: The File PRG Plugin will interact
         directly with your form instance and the file inputs, rather than
@@ -65,7 +65,7 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
         
         <p>
           You <strong>must</strong> attach a filter for moving the uploaded files to a new location, such as the
-          <a href="https://zendframework.github.io/zend-filter/file/#renameupload">RenameUpload Filter</a>,
+          <a href="https://docs.laminas.dev/laminas-filter/file/#renameupload">RenameUpload Filter</a>,
           or else your files will be removed upon the redirect.
         </p>
       </blockquote>
@@ -75,7 +75,7 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
       </p>
 
       <ul>
-        <li><code>$form</code>: the <code>Zend\Form\Form</code> instance.</li>
+        <li><code>$form</code>: the <code>Laminas\Form\Form</code> instance.</li>
         <li><code>$redirect</code>: (Optional) a string containing the redirect
           location, which can either be a named route or a URL, based on the
           contents of the third parameter. If this argument is not provided, it
@@ -90,16 +90,16 @@ $ composer require zendframework/zend-mvc-plugin-fileprg
       <h3>Example Usage</h3>
 
       <pre><code class="lang-php" data-trim>
-$myForm = new Zend\Form\Form('my-form');
+$myForm = new Laminas\Form\Form('my-form');
 $myForm->add([
-    'type' => 'Zend\Form\Element\File',
+    'type' => 'Laminas\Form\Element\File',
     'name' => 'file',
 ]);
 
 // NOTE: Without a filter to move the file,
 //       our files will disappear between the requests
 $myForm->getInputFilter()->getFilterChain()->attach(
-    new Zend\Filter\File\RenameUpload([
+    new Laminas\Filter\File\RenameUpload([
         'target'    => './data/tmpuploads/file',
         'randomize' => true,
     ])
@@ -108,7 +108,7 @@ $myForm->getInputFilter()->getFilterChain()->attach(
 // Pass in the form and optional the route/url you want to redirect to after the POST
 $prg = $this->fileprg($myForm, '/user/profile-pic', true);
 
-if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
+if ($prg instanceof \Laminas\Http\PhpEnvironment\Response) {
     // Returned a response to redirect us.
     return $prg;
 }
