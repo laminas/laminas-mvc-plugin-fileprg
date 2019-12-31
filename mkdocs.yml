@@ -2,8 +2,8 @@ docs_dir: docs/book
 site_dir: docs/html
 nav:
     - Home: index.md
-site_name: zend-mvc-plugin-fileprg
-site_description: 'Post/Redirect/Get plugin with file upload handling for zend-mvc controllers'
-repo_url: 'https://github.com/zendframework/zend-mvc-plugin-fileprg'
+site_name: laminas-mvc-plugin-fileprg
+site_description: 'Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers'
+repo_url: 'https://github.com/laminas/laminas-mvc-plugin-fileprg'
 extra:
     show_special_homepage: true
