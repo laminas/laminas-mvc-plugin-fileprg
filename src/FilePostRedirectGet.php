@@ -1,22 +1,23 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-mvc-plugin-fileprg for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-mvc-plugin-fileprg for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-mvc-plugin-fileprg/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Mvc\Plugin\FilePrg;
+namespace Laminas\Mvc\Plugin\FilePrg;
 
-use Zend\Filter\FilterChain;
-use Zend\Form\FormInterface;
-use Zend\Http\Response;
-use Zend\InputFilter\FileInput;
-use Zend\InputFilter\InputFilterInterface;
-use Zend\Mvc\Controller\Plugin\AbstractPlugin;
-use Zend\Mvc\Exception\RuntimeException;
-use Zend\Session\Container;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Validator\ValidatorChain;
+use Laminas\Filter\FilterChain;
+use Laminas\Form\FormInterface;
+use Laminas\Http\Response;
+use Laminas\InputFilter\FileInput;
+use Laminas\InputFilter\InputFilterInterface;
+use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
+use Laminas\Mvc\Exception\RuntimeException;
+use Laminas\Session\Container;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Validator\ValidatorChain;
 
 /**
  * Plugin to help facilitate Post/Redirect/Get for file upload forms
@@ -291,7 +292,7 @@ class FilePostRedirectGet extends AbstractPlugin
      * @param  string  $redirect
      * @param  bool    $redirectToUrl
      * @return Response
-     * @throws \Zend\Mvc\Exception\RuntimeException
+     * @throws \Laminas\Mvc\Exception\RuntimeException
      */
     protected function redirect($redirect, $redirectToUrl)
     {
