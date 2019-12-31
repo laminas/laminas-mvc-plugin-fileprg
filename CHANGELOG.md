@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#10](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/10) adds support for PHP 7.1 and 7.2.
+- [zendframework/zend-mvc-plugin-fileprg#10](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/10) adds support for PHP 7.1 and 7.2.
 
 ### Changed
 
@@ -40,7 +40,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#10](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/10) removes support for HHVM.
+- [zendframework/zend-mvc-plugin-fileprg#10](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/10) removes support for HHVM.
 
 ### Fixed
 
@@ -64,8 +64,8 @@ First stable release.
 
 ### Fixed
 
-- [#2](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/2) pins the
-  component to stable zend-mvc v3 versions, and marks a conflict with zend-mvc
+- [zendframework/zend-mvc-plugin-fileprg#2](https://github.com/zendframework/zend-mvc-plugin-fileprg/pull/2) pins the
+  component to stable laminas-mvc v3 versions, and marks a conflict with laminas-mvc
   v2 versions.
 
 ## 0.1.0 - 2016-03-29
@@ -73,9 +73,9 @@ First stable release.
 First (stable) release.
 
 This component replaces the `FilePostRedirectGet` (aka `fileprg()`) plugin from
-zend-mvc, for use with upcoming v3 of that component. Once that stable release
+laminas-mvc, for use with upcoming v3 of that component. Once that stable release
 is made, we will issue a 1.0.0 release removing the `dev-develop as 3.0.0`
-zend-mvc constraint.
+laminas-mvc constraint.
 
 ### Added
 
