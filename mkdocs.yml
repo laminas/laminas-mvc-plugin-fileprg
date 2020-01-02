@@ -6,4 +6,6 @@ site_name: laminas-mvc-plugin-fileprg
 site_description: 'Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers'
 repo_url: 'https://github.com/laminas/laminas-mvc-plugin-fileprg'
 extra:
+    project: Mvc
+    project_url: 'https://docs.laminas.dev'
     show_special_homepage: true
