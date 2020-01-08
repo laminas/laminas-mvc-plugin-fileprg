@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers">  
-    <link rel="canonical" href="https://docs.laminas.dev/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
     <title>laminas-mvc-plugin-fileprg - Laminas Docs</title>
@@ -20,7 +19,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="img/laminas-foundation-white.svg" height="28" alt="Laminas">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -113,149 +112,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-
-    
-
-    
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item">laminas-mvc-plugin-fileprg</li>
-            
-        
-    </ol>
-</nav>
-
-
-
-
-
-    <h1>laminas-mvc-plugin-fileprg</h1>
-<p>Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers</p>
-
-
-    <h2 id="installation">Installation</h2>
-<p>Install via composer:</p>
-<pre class=codehilite><code class=language-bash>$ composer require laminas/laminas-mvc-plugin-fileprg</code></pre>
-<p>If you are using the <a href="https://docs.laminas.dev/laminas-component-installer/">laminas-component-installer</a>,
-you're done!</p>
-<p>If not, you will need to add the component as a module to your
-application. Add the entry <code>'Laminas\Mvc\Plugin\FilePrg'</code> to
-your list of modules in your application configuration (typically
-one of <code>config/application.config.php</code> or <code>config/modules.config.php</code>).</p>
-<h2 id="usage">Usage</h2>
-<p>While similar to the <a href="https://docs.laminas.dev/laminas-mvc-plugin-prg/">Post/Redirect/Get Plugin</a>,
-the File PRG Plugin will work for forms with file inputs.
-The difference is in the behavior: The File PRG Plugin will interact
-directly with your form instance and the file inputs, rather than
-<em>only</em> returning the POST params from the previous request.</p>
-<p>By interacting directly with the form, the File PRG Plugin will turn off any
-file inputs <code>required</code> flags for already uploaded files (for a partially valid
-form state), as well as run the file input filters to move the uploaded files
-into a new location (configured by the user).</p>
+<h1 class="content__title">404</h1>
 <blockquote>
-<h3>Files must be relocated on upload</h3></h3>
-<p>You <strong>must</strong> attach a filter for moving the uploaded files to a new location, such as the
-<a href="https://docs.laminas.dev/laminas-filter/file/#renameupload">RenameUpload Filter</a>,
-or else your files will be removed upon the redirect.</p>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
 </blockquote>
-<p>This plugin is invoked with three arguments:</p>
-<ul>
-<li><code>$form</code>: the <code>Laminas\Form\Form</code> instance.</li>
-<li><code>$redirect</code>: (Optional) a string containing the redirect
-  location, which can either be a named route or a URL, based on the
-  contents of the third parameter. If this argument is not provided, it
-  will default to the current matched route.</li>
-<li><code>$redirectToUrl</code>: (Optional) a boolean that when set to
-  <code>true</code>, causes the second parameter to be treated as a URL
-  instead of a route name (this is required when redirecting to a URL
-  instead of a route). This argument defaults to
-  <code>false</code>.</li>
-</ul>
-<h3>Example Usage</h3>
-<pre class=codehilite><code class=language-php>$myForm = new Laminas\Form\Form('my-form');
-$myForm-&gt;add([
-    'type' =&gt; 'Laminas\Form\Element\File',
-    'name' =&gt; 'file',
-]);
 
-// NOTE: Without a filter to move the file,
-//       our files will disappear between the requests
-$myForm-&gt;getInputFilter()-&gt;getFilterChain()-&gt;attach(
-    new Laminas\Filter\File\RenameUpload([
-        'target'    =&gt; './data/tmpuploads/file',
-        'randomize' =&gt; true,
-    ])
-);
-
-// Pass in the form and optional the route/url you want to redirect to after the POST
-$prg = $this-&gt;fileprg($myForm, '/user/profile-pic', true);
-
-if ($prg instanceof Laminas\Http\PhpEnvironment\Response) {
-    // Returned a response to redirect us.
-    return $prg;
-}
-
-if ($prg === false) {
-    // First time the form was loaded.
-    return ['form' =&gt; $myForm];
-}
-
-// Form was submitted.
-// $prg is now an array containing the POST params from the previous request,
-// but we don't have to apply it to the form since that has already been done.
-
-// Process the form
-if ($form-&gt;isValid()) {
-    // ...Save the form...
-    return $this-&gt;redirect()-&gt;toRoute('/user/profile-pic/success');
-}
-
-// Form not valid, but file uploads might be valid and uploaded
-$fileErrors = $form-&gt;get('file')-&gt;getMessages();
-if (empty($fileErrors)) {
-    $tempFile = $form-&gt;get('file')-&gt;getValue();
-}</code></pre>
-
-    
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-<h2>Support</h2>
-<ul>
-    <li>Issues: <a href="https://github.com/laminas/laminas-mvc-plugin-fileprg/issues">github.com/laminas/laminas-mvc-plugin-fileprg/issues</a></li>
-    <li>Source: <a href="https://github.com/laminas/laminas-mvc-plugin-fileprg/">github.com/laminas/laminas-mvc-plugin-fileprg/</a></li>
-    <li>Chat: <a href="https://laminas.dev/chat">laminas.dev/chat</a></li>
-    <li>Forum: <a href="https://discourse.laminas.dev/">discourse.laminas.dev</a></li>
-</ul>
-
-
-
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-mvc-plugin-fileprg/edit/master/docs/book/index.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -346,12 +217,12 @@ if (empty($fileErrors)) {
 </footer>
 
     <script>
-        let base_url = '.',
+        let base_url = '..',
             project  = "mvc",
             siteName = 'laminas-mvc-plugin-fileprg';
     </script>
     <script src="/js/scripts.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -379,8 +250,3 @@ if (empty($fileErrors)) {
 
 
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-01-08 12:29:38
--->
