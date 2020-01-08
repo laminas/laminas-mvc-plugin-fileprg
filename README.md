@@ -1,6 +1,6 @@
 # laminas-mvc-plugin-fileprg
 
-[![Build Status](https://travis-ci.org/laminas/laminas-mvc-plugin-fileprg.svg?branch=master)](https://travis-ci.org/laminas/laminas-mvc-plugin-fileprg)
+[![Build Status](https://travis-ci.com/laminas/laminas-mvc-plugin-fileprg.svg?branch=master)](https://travis-ci.com/laminas/laminas-mvc-plugin-fileprg)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-mvc-plugin-fileprg/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-mvc-plugin-fileprg?branch=master)
 
 Provides a [Post-Redirect-Get](https://en.wikipedia.org/wiki/Post/Redirect/Get)
