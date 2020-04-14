@@ -31,8 +31,10 @@ class Module
                     'Laminas\Mvc\Controller\Plugin\FilePostRedirectGet' => FilePostRedirectGet::class,
 
                     // Legacy Zend Framework aliases
-                    'Zend\Mvc\Controller\Plugin\FilePostRedirectGet' => 'Laminas\Mvc\Controller\Plugin\FilePostRedirectGet',
+                    // @codingStandardsIgnoreStart
+                    'Zend\Mvc\Controller\Plugin\FilePostRedirectGet'    => 'Laminas\Mvc\Controller\Plugin\FilePostRedirectGet',
                     \Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet::class => FilePostRedirectGet::class,
+                    // @codingStandardsIgnoreEnd
                 ],
                 'factories' => [
                     FilePostRedirectGet::class => InvokableFactory::class,
