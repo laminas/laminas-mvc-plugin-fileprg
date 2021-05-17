@@ -1,28 +1,12 @@
 {
     "name": "laminas/laminas-mvc-plugin-fileprg",
     "description": "Post/Redirect/Get plugin with file upload handling for laminas-mvc controllers",
-    "license": "BSD-3-Clause",
     "keywords": [
         "laminas",
         "mvc"
     ],
     "homepage": "https://laminas.dev",
-    "support": {
-        "docs": "https://docs.laminas.dev/laminas-mvc-plugin-fileprg/",
-        "issues": "https://github.com/laminas/laminas-mvc-plugin-fileprg/issues",
-        "source": "https://github.com/laminas/laminas-mvc-plugin-fileprg",
-        "rss": "https://github.com/laminas/laminas-mvc-plugin-fileprg/releases.atom",
-        "chat": "https://laminas.dev/chat",
-        "forum": "https://discourse.laminas.dev"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laminas": {
-            "component": "Laminas\\Mvc\\Plugin\\FilePrg"
-        }
-    },
+    "license": "BSD-3-Clause",
     "require": {
         "php": "^7.3 || ~8.0.0",
         "laminas/laminas-filter": "^2.6.1",
@@ -34,12 +18,23 @@
         "laminas/laminas-validator": "^2.6",
         "laminas/laminas-zendframework-bridge": "^1.0"
     },
+    "replace": {
+        "zendframework/zend-mvc-plugin-fileprg": "^1.1.0"
+    },
+    "conflict": {
+        "laminas/laminas-mvc": "<3.0.0"
+    },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
         "phpunit/phpunit": "^9.3"
     },
-    "conflict": {
-        "laminas/laminas-mvc": "<3.0.0"
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laminas": {
+            "component": "Laminas\\Mvc\\Plugin\\FilePrg"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -61,7 +56,12 @@
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
-    "replace": {
-        "zendframework/zend-mvc-plugin-fileprg": "^1.1.0"
+    "support": {
+        "issues": "https://github.com/laminas/laminas-mvc-plugin-fileprg/issues",
+        "forum": "https://discourse.laminas.dev",
+        "chat": "https://laminas.dev/chat",
+        "source": "https://github.com/laminas/laminas-mvc-plugin-fileprg",
+        "docs": "https://docs.laminas.dev/laminas-mvc-plugin-fileprg/",
+        "rss": "https://github.com/laminas/laminas-mvc-plugin-fileprg/releases.atom"
     }
 }
