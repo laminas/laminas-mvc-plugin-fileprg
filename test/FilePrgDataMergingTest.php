@@ -79,12 +79,12 @@ class FilePrgDataMergingTest extends TestCase
                         'name' => 'test.jpg',
                         'type' => 'image/jpeg',
                         'size' => 20480,
-                        'tmp_name' => __DIR__ . DIRECTORY_SEPARATOR . 'TestAsset' . DIRECTORY_SEPARATOR . 'testfile.jpg',
+                        'tmp_name' => __DIR__ . '/TestAsset/nullfile_copy',
                         'error' => 0
                     ],
                 ],
                 1 => [
-                    'text' => null,
+                    'text' => '',
                     'file' => null,
                 ]
             ]
