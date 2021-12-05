@@ -31,15 +31,15 @@
         "laminas/laminas-mvc": "^3.0",
         "laminas/laminas-session": "^2.8.5",
         "laminas/laminas-stdlib": "^3.3",
-        "laminas/laminas-validator": "^2.6",
-        "laminas/laminas-zendframework-bridge": "^1.0"
+        "laminas/laminas-validator": "^2.6"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
         "phpunit/phpunit": "^9.3"
     },
     "conflict": {
-        "laminas/laminas-mvc": "<3.0.0"
+        "laminas/laminas-mvc": "<3.0.0",
+        "zendframework/zend-mvc-plugin-fileprg": "*"
     },
     "autoload": {
         "psr-4": {
@@ -60,8 +60,5 @@
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    },
-    "replace": {
-        "zendframework/zend-mvc-plugin-fileprg": "^1.1.0"
     }
 }
