@@ -24,9 +24,9 @@
         }
     },
     "require": {
-        "php": "^7.3 || ~8.0.0 || ~8.1.0",
+        "php": "^7.4 || ~8.0.0 || ~8.1.0",
         "laminas/laminas-filter": "^2.6.1",
-        "laminas/laminas-form": "^2.7",
+        "laminas/laminas-form": "^3.1",
         "laminas/laminas-inputfilter": "^2.8.1",
         "laminas/laminas-mvc": "^3.0",
         "laminas/laminas-session": "^2.8.5",
