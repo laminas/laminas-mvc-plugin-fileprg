@@ -70,7 +70,7 @@ class FilePrgDataMergingTest extends TestCase
         $this->assertFalse($form->isValid());
         $data = $form->getData();
 
-        // @codingStandardsIgnoreStart
+        // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertEquals([
             'collection' => [
                 0 => [
@@ -89,7 +89,7 @@ class FilePrgDataMergingTest extends TestCase
                 ]
             ]
         ], $data);
-        // @codingStandardsIgnoreEnd
+        // phpcs:enable Generic.Files.LineLength.TooLong
 
         $this->assertFileExists($data['collection'][0]['file']['tmp_name']);
 
