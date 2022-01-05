@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\Plugin\FilePrg;
 
 use Laminas\Filter\FilterChain;
@@ -12,6 +14,12 @@ use Laminas\Mvc\Exception\RuntimeException;
 use Laminas\Session\Container;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Validator\ValidatorChain;
+use ReflectionClass;
+
+use function is_array;
+use function method_exists;
+
+use const UPLOAD_ERR_NO_FILE;
 
 /**
  * Plugin to help facilitate Post/Redirect/Get for file upload forms
@@ -25,13 +33,10 @@ use Laminas\Validator\ValidatorChain;
  */
 class FilePostRedirectGet extends AbstractPlugin
 {
-    /**
-     * @var Container
-     */
+    /** @var Container */
     protected $sessionContainer;
 
     /**
-     * @param  FormInterface $form
      * @param  string        $redirect      Route or URL string (default: current route)
      * @param  bool          $redirectToUrl Use $redirect as a URL string (default: false)
      * @return bool|array|Response
@@ -47,7 +52,6 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @param  FormInterface $form
      * @param  string        $redirect      Route or URL string (default: current route)
      * @param  bool          $redirectToUrl Use $redirect as a URL string (default: false)
      * @return Response
@@ -65,7 +69,7 @@ class FilePostRedirectGet extends AbstractPlugin
 
         // Change required flag to false for any previously uploaded files
         $inputFilter   = $form->getInputFilter();
-        $previousFiles = ($container->files) ?: [];
+        $previousFiles = $container->files ?: [];
         $this->traverseInputs(
             $inputFilter,
             $previousFiles,
@@ -80,17 +84,17 @@ class FilePostRedirectGet extends AbstractPlugin
         // Run the form validations/filters and retrieve any errors
         $isValid = $form->isValid();
         $data    = $form->getData(FormInterface::VALUES_AS_ARRAY);
-        $errors  = (! $isValid) ? $form->getMessages() : null;
+        $errors  = ! $isValid ? $form->getMessages() : null;
 
         // Merge and replace previous files with new valid files
         $prevFileData = $this->getEmptyUploadData($inputFilter, $previousFiles);
         $newFileData  = $this->getNonEmptyUploadData($inputFilter, $data);
-        $postFiles = ArrayUtils::merge(
+        $postFiles    = ArrayUtils::merge(
             $prevFileData ?: [],
-            $newFileData  ?: [],
+            $newFileData ?: [],
             true
         );
-        $post = ArrayUtils::merge($postOther, $postFiles, true);
+        $post         = ArrayUtils::merge($postOther, $postFiles, true);
 
         // Save form data in session
         $container->setExpirationHops(1, ['post', 'errors', 'isValid']);
@@ -103,7 +107,6 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @param  FormInterface $form
      * @return bool|array
      */
     protected function handleGetRequest(FormInterface $form)
@@ -116,9 +119,9 @@ class FilePostRedirectGet extends AbstractPlugin
         }
 
         // Collect data from session
-        $post          = $container->post;
-        $errors        = $container->errors;
-        $isValid       = $container->isValid;
+        $post    = $container->post;
+        $errors  = $container->errors;
+        $isValid = $container->isValid;
         unset($container->post);
         unset($container->errors);
         unset($container->isValid);
@@ -136,7 +139,7 @@ class FilePostRedirectGet extends AbstractPlugin
                 if ($input instanceof FileInput) {
                     $input->setAutoPrependUploadValidator(false)
                           ->setValidatorChain(new ValidatorChain())
-                          ->setFilterChain(new FilterChain);
+                          ->setFilterChain(new FilterChain());
                 }
                 return $value;
             }
@@ -169,7 +172,6 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @param  Container $container
      * @return FilePostRedirectGet
      */
     public function setSessionContainer(Container $container)
@@ -179,14 +181,13 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @param  FormInterface $form
      * @param  string $property
      * @param  mixed  $value
      * @return FilePostRedirectGet
      */
     protected function setProtectedFormProperty(FormInterface $form, $property, $value)
     {
-        $formClass = new \ReflectionClass($form);
+        $formClass = new ReflectionClass($form);
         $property  = $formClass->getProperty($property);
         $property->setAccessible(true);
         $property->setValue($form, $value);
@@ -196,7 +197,6 @@ class FilePostRedirectGet extends AbstractPlugin
     /**
      * Traverse the InputFilter and run a callback against each Input and associated value
      *
-     * @param  InputFilterInterface $inputFilter
      * @param  array                $values
      * @param  callable             $callback
      * @return array|null
@@ -229,7 +229,6 @@ class FilePostRedirectGet extends AbstractPlugin
     /**
      * Traverse the InputFilter and only return the data of FileInputs that have an upload
      *
-     * @param  InputFilterInterface $inputFilter
      * @param  array                $data
      * @return array
      */
@@ -242,7 +241,8 @@ class FilePostRedirectGet extends AbstractPlugin
                 $messages = $input->getMessages();
                 if (is_array($value) && $input instanceof FileInput && empty($messages)) {
                     $rawValue = $input->getRawValue();
-                    if ((isset($rawValue['error']) && $rawValue['error'] !== UPLOAD_ERR_NO_FILE)
+                    if (
+                        (isset($rawValue['error']) && $rawValue['error'] !== UPLOAD_ERR_NO_FILE)
                         || (isset($rawValue[0]['error']) && $rawValue[0]['error'] !== UPLOAD_ERR_NO_FILE)
                     ) {
                         return $value;
@@ -256,7 +256,6 @@ class FilePostRedirectGet extends AbstractPlugin
     /**
      * Traverse the InputFilter and only return the data of FileInputs that are empty
      *
-     * @param  InputFilterInterface $inputFilter
      * @param  array                $data
      * @return array
      */
@@ -269,7 +268,8 @@ class FilePostRedirectGet extends AbstractPlugin
                 $messages = $input->getMessages();
                 if (is_array($value) && $input instanceof FileInput && empty($messages)) {
                     $rawValue = $input->getRawValue();
-                    if ((isset($rawValue['error'])    && $rawValue['error'] === UPLOAD_ERR_NO_FILE)
+                    if (
+                        (isset($rawValue['error']) && $rawValue['error'] === UPLOAD_ERR_NO_FILE)
                         || (isset($rawValue[0]['error']) && $rawValue[0]['error'] === UPLOAD_ERR_NO_FILE)
                     ) {
                         return $value;
@@ -286,7 +286,7 @@ class FilePostRedirectGet extends AbstractPlugin
      * @param  string  $redirect
      * @param  bool    $redirectToUrl
      * @return Response
-     * @throws \Laminas\Mvc\Exception\RuntimeException
+     * @throws RuntimeException
      */
     protected function redirect($redirect, $redirectToUrl)
     {

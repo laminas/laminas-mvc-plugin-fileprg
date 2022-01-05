@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\Plugin\FilePrg\TestAsset;
 
 use Laminas\Form\Fieldset;
@@ -15,6 +17,7 @@ class LinksFieldset extends Fieldset implements InputFilterProviderInterface
         ]);
     }
 
+    /** @return array */
     public function getInputFilterSpecification()
     {
         return [

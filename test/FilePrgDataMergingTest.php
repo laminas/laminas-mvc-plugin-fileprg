@@ -1,11 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\Plugin\FilePrg;
 
 use Laminas\Form\Form;
 use Laminas\Stdlib\Parameters;
 use Laminas\Validator\NotEmpty;
 use PHPUnit\Framework\TestCase;
+
+use function copy;
+use function strpos;
+use function unlink;
+
+use const DIRECTORY_SEPARATOR;
+use const UPLOAD_ERR_OK;
 
 /**
  * @runTestsInSeparateProcesses
@@ -26,12 +35,12 @@ class FilePrgDataMergingTest extends TestCase
 
         $form = new Form();
         $form->add([
-            'name' => 'collection',
-            'type' => 'collection',
+            'name'    => 'collection',
+            'type'    => 'collection',
             'options' => [
                 'target_element' => new TestAsset\TestFieldset('target'),
-                'count' => 2,
-            ]
+                'count'          => 2,
+            ],
         ]);
 
         copy(__DIR__ . '/TestAsset/nullfile', __DIR__ . '/TestAsset/nullfile_copy');
@@ -45,21 +54,21 @@ class FilePrgDataMergingTest extends TestCase
                 ],
                 1 => [
                     'text' => '',
-                ]
-            ]
+                ],
+            ],
         ]));
         $request->setFiles(new Parameters([
             'collection' => [
                 0 => [
                     'file' => [
-                        'name' => 'test.jpg',
-                        'type' => 'image/jpeg',
-                        'size' => 20480,
+                        'name'     => 'test.jpg',
+                        'type'     => 'image/jpeg',
+                        'size'     => 20480,
                         'tmp_name' => __DIR__ . '/TestAsset/nullfile_copy',
-                        'error' => UPLOAD_ERR_OK
+                        'error'    => UPLOAD_ERR_OK,
                     ],
                 ],
-            ]
+            ],
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
@@ -70,26 +79,26 @@ class FilePrgDataMergingTest extends TestCase
         $this->assertFalse($form->isValid());
         $data = $form->getData();
 
-        // @codingStandardsIgnoreStart
+        // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertEquals([
             'collection' => [
                 0 => [
                     'text' => 'testvalue1',
                     'file' => [
-                        'name' => 'test.jpg',
-                        'type' => 'image/jpeg',
-                        'size' => 20480,
+                        'name'     => 'test.jpg',
+                        'type'     => 'image/jpeg',
+                        'size'     => 20480,
                         'tmp_name' => __DIR__ . DIRECTORY_SEPARATOR . 'TestAsset' . DIRECTORY_SEPARATOR . 'testfile.jpg',
-                        'error' => 0
+                        'error'    => 0,
                     ],
                 ],
                 1 => [
                     'text' => null,
                     'file' => null,
-                ]
-            ]
+                ],
+            ],
         ], $data);
-        // @codingStandardsIgnoreEnd
+        // phpcs:enable Generic.Files.LineLength.TooLong
 
         $this->assertFileExists($data['collection'][0]['file']['tmp_name']);
 

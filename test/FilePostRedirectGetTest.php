@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\Plugin\FilePrg;
 
 use Laminas\Form\Form;
@@ -18,7 +20,7 @@ class FilePostRedirectGetTest extends TestCase
 
     public function testReturnsFalseOnIntialGet()
     {
-        $result    = $this->controller->dispatch($this->request, $this->response);
+        $result = $this->controller->dispatch($this->request, $this->response);
 
         $plugin = $this->plugin;
         $this->assertFalse($plugin($this->form, 'home'));
@@ -28,12 +30,12 @@ class FilePostRedirectGetTest extends TestCase
     {
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
-            'postval1' => 'value'
+            'postval1' => 'value',
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin       = $this->plugin;
         $prgResultUrl = $plugin($this->form, '/test/getPage', true);
 
         $this->assertInstanceOf(Response::class, $prgResultUrl);
@@ -46,12 +48,12 @@ class FilePostRedirectGetTest extends TestCase
     {
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
-            'postval1' => 'value1'
+            'postval1' => 'value1',
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin         = $this->plugin;
         $prgResultRoute = $plugin($this->form, 'home');
 
         $this->assertInstanceOf(Response::class, $prgResultRoute);
@@ -63,11 +65,11 @@ class FilePostRedirectGetTest extends TestCase
     public function testThrowsExceptionOnRouteWithoutRouter()
     {
         $controller = $this->controller;
-        $controller = $controller->getEvent()->setRouter(new SimpleRouteStack);
+        $controller = $controller->getEvent()->setRouter(new SimpleRouteStack());
 
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
-            'postval1' => 'value'
+            'postval1' => 'value',
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
@@ -83,12 +85,12 @@ class FilePostRedirectGetTest extends TestCase
 
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
-            'postval1' => 'value1'
+            'postval1' => 'value1',
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin         = $this->plugin;
         $prgResultRoute = $plugin($this->form);
 
         $this->assertInstanceOf(Response::class, $prgResultRoute);
@@ -103,12 +105,12 @@ class FilePostRedirectGetTest extends TestCase
 
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
-            'postval1' => 'value1'
+            'postval1' => 'value1',
         ]));
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin         = $this->plugin;
         $prgResultRoute = $plugin($this->form);
 
         $this->assertInstanceOf(Response::class, $prgResultRoute);
@@ -121,18 +123,18 @@ class FilePostRedirectGetTest extends TestCase
     {
         // Do POST
         $params = [
-            'postval1' => 'value'
+            'postval1' => 'value',
         ];
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters($params));
 
         $this->form->add([
-            'name' => 'postval1'
+            'name' => 'postval1',
         ]);
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin       = $this->plugin;
         $prgResultUrl = $plugin($this->form, '/test/getPage', true);
 
         $this->assertInstanceOf(Response::class, $prgResultUrl);
@@ -164,7 +166,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->request->setPost(new Parameters($params));
 
         $this->form->add([
-            'name' => 'postval1'
+            'name' => 'postval1',
         ]);
         $inputFilter = new InputFilter();
         $inputFilter->add([
@@ -175,7 +177,7 @@ class FilePostRedirectGetTest extends TestCase
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin       = $this->plugin;
         $prgResultUrl = $plugin($this->form, '/test/getPage', true);
 
         $this->assertInstanceOf(Response::class, $prgResultUrl);
@@ -199,18 +201,18 @@ class FilePostRedirectGetTest extends TestCase
         $this->request->setMethod('POST');
         $this->request->setUri($expects);
         $this->request->setPost(new Parameters([
-            'postval1' => 'value1'
+            'postval1' => 'value1',
         ]));
 
         $routeMatch = $this->event->getRouter()->match($this->request);
         $this->event->setRouteMatch($routeMatch);
 
-        $moduleRouteListener = new ModuleRouteListener;
+        $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->onRoute($this->event);
 
         $this->controller->dispatch($this->request, $this->response);
 
-        $plugin = $this->plugin;
+        $plugin         = $this->plugin;
         $prgResultRoute = $plugin($this->form);
 
         $this->assertInstanceOf(Response::class, $prgResultRoute);
@@ -225,12 +227,12 @@ class FilePostRedirectGetTest extends TestCase
 
     public function testCollectionInputFilterIsInitializedBeforePluginRetrievesIt()
     {
-        $fieldset = new TestAsset\InputFilterProviderFieldset();
+        $fieldset       = new TestAsset\InputFilterProviderFieldset();
         $collectionSpec = [
-            'name' => 'test_collection',
-            'type' => 'collection',
+            'name'    => 'test_collection',
+            'type'    => 'collection',
             'options' => [
-                'target_element' => $fieldset
+                'target_element' => $fieldset,
             ],
         ];
 
@@ -240,12 +242,12 @@ class FilePostRedirectGetTest extends TestCase
         $postData = [
             'test_collection' => [
                 [
-                    'test_field' => 'foo'
+                    'test_field' => 'foo',
                 ],
                 [
-                    'test_field' => 'bar'
-                ]
-            ]
+                    'test_field' => 'bar',
+                ],
+            ],
         ];
 
         // test POST
