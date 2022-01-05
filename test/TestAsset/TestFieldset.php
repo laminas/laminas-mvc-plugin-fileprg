@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Mvc\Plugin\FilePrg\TestAsset;
 
+use ArrayAccess;
 use Laminas\Form\Fieldset;
 use Laminas\InputFilter\InputFilterProviderInterface;
 
 class TestFieldset extends Fieldset implements InputFilterProviderInterface
 {
+    /**
+     * @param null|string $name
+     * @param array|ArrayAccess $options
+     */
     public function __construct($name = null, $options = [])
     {
         parent::__construct($name, $options);
@@ -21,6 +28,7 @@ class TestFieldset extends Fieldset implements InputFilterProviderInterface
         ]);
     }
 
+    /** @return array */
     public function getInputFilterSpecification()
     {
         return [
@@ -29,14 +37,14 @@ class TestFieldset extends Fieldset implements InputFilterProviderInterface
             ],
             'file' => [
                 'required' => true,
-                'filters' => [
+                'filters'  => [
                     [
-                        'name' => 'filerenameupload',
+                        'name'    => 'filerenameupload',
                         'options' => [
                             'target'    => __DIR__ . '/testfile.jpg',
                             'overwrite' => true,
-                        ]
-                    ]
+                        ],
+                    ],
                 ],
             ],
         ];

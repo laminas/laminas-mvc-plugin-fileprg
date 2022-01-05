@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Laminas\Mvc\Plugin\FilePrg;
 
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -17,11 +19,11 @@ class Module
     {
         return [
             'controller_plugins' => [
-                'aliases' => [
-                    'fileprg'             => FilePostRedirectGet::class,
-                    'FilePostRedirectGet' => FilePostRedirectGet::class,
-                    'filePostRedirectGet' => FilePostRedirectGet::class,
-                    'filepostredirectget' => FilePostRedirectGet::class,
+                'aliases'   => [
+                    'fileprg'                                           => FilePostRedirectGet::class,
+                    'FilePostRedirectGet'                               => FilePostRedirectGet::class,
+                    'filePostRedirectGet'                               => FilePostRedirectGet::class,
+                    'filepostredirectget'                               => FilePostRedirectGet::class,
                     'Laminas\Mvc\Controller\Plugin\FilePostRedirectGet' => FilePostRedirectGet::class,
 
                     // Legacy Zend Framework aliases
