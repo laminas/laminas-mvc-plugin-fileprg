@@ -1,3 +1,7 @@
+# laminas-mvc-plugin-file-prg
+
+Laminas MVC plugin for providing Post-Redirect-Get workflows with uploaded files.
+
 ## Installation
 
 Install via composer:
