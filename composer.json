@@ -51,6 +51,8 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Laminas\\Filter\\File\\": "polyfill/Filter/File/",
+            "Laminas\\Validator\\File\\": "polyfill/Validator/File/",
             "LaminasTest\\Mvc\\Plugin\\FilePrg\\": "test/"
         }
     },
