@@ -18,15 +18,15 @@ class FilePostRedirectGetTest extends TestCase
 {
     use CommonSetupTrait;
 
-    public function testReturnsFalseOnIntialGet()
+    public function testReturnsFalseOnIntialGet(): void
     {
-        $result = $this->controller->dispatch($this->request, $this->response);
+        $this->controller->dispatch($this->request, $this->response);
 
         $plugin = $this->plugin;
         $this->assertFalse($plugin($this->form, 'home'));
     }
 
-    public function testRedirectsToUrlOnPost()
+    public function testRedirectsToUrlOnPost(): void
     {
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
@@ -44,7 +44,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertEquals(303, $prgResultUrl->getStatusCode());
     }
 
-    public function testRedirectsToRouteOnPost()
+    public function testRedirectsToRouteOnPost(): void
     {
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
@@ -62,10 +62,9 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertEquals(303, $prgResultRoute->getStatusCode());
     }
 
-    public function testThrowsExceptionOnRouteWithoutRouter()
+    public function testThrowsExceptionOnRouteWithoutRouter(): void
     {
-        $controller = $this->controller;
-        $controller = $controller->getEvent()->setRouter(new SimpleRouteStack());
+        $this->controller->getEvent()->setRouter(new SimpleRouteStack());
 
         $this->request->setMethod('POST');
         $this->request->setPost(new Parameters([
@@ -76,10 +75,10 @@ class FilePostRedirectGetTest extends TestCase
         $plugin = $this->plugin;
 
         $this->expectException(RuntimeException::class);
-        $prgResultRoute = $plugin($this->form, 'some/route');
+        $plugin($this->form, 'some/route');
     }
 
-    public function testNullRouteUsesMatchedRouteName()
+    public function testNullRouteUsesMatchedRouteName(): void
     {
         $this->controller->getEvent()->getRouteMatch()->setMatchedRouteName('home');
 
@@ -99,7 +98,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertEquals(303, $prgResultRoute->getStatusCode());
     }
 
-    public function testReuseMatchedParameters()
+    public function testReuseMatchedParameters(): void
     {
         $this->controller->getEvent()->getRouteMatch()->setMatchedRouteName('sub');
 
@@ -119,7 +118,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertEquals(303, $prgResultRoute->getStatusCode());
     }
 
-    public function testReturnsPostOnRedirectGet()
+    public function testReturnsPostOnRedirectGet(): void
     {
         // Do POST
         $params = [
@@ -158,7 +157,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertFalse($prgResult);
     }
 
-    public function testAppliesFormErrorsOnPostRedirectGet()
+    public function testAppliesFormErrorsOnPostRedirectGet(): void
     {
         // Do POST
         $params = [];
@@ -195,7 +194,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertNotEmpty($messages['postval1']['isEmpty']);
     }
 
-    public function testReuseMatchedParametersWithSegmentController()
+    public function testReuseMatchedParametersWithSegmentController(): void
     {
         $expects = '/ctl/sample';
         $this->request->setMethod('POST');
@@ -225,7 +224,7 @@ class FilePostRedirectGetTest extends TestCase
         $this->assertEquals(303, $prgResultRoute->getStatusCode());
     }
 
-    public function testCollectionInputFilterIsInitializedBeforePluginRetrievesIt()
+    public function testCollectionInputFilterIsInitializedBeforePluginRetrievesIt(): void
     {
         $fieldset       = new TestAsset\InputFilterProviderFieldset();
         $collectionSpec = [

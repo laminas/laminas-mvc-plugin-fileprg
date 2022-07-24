@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+  <file src="src/FilePostRedirectGet.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>! $this-&gt;sessionContainer</code>
+      <code>$this-&gt;sessionContainer</code>
+      <code>null === $redirect</code>
+    </DocblockTypeContradiction>
+    <InvalidArgument occurrences="1">
+      <code>$post</code>
+    </InvalidArgument>
+    <InvalidNullableReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </InvalidNullableReturnType>
+    <InvalidReturnStatement occurrences="1">
+      <code>$post</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>bool|array</code>
+    </InvalidReturnType>
+    <MissingClosureParamType occurrences="8">
+      <code>$input</code>
+      <code>$input</code>
+      <code>$input</code>
+      <code>$input</code>
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MissingClosureParamType>
+    <MissingClosureReturnType occurrences="2">
+      <code>function ($input, $value) {</code>
+      <code>function ($input, $value) {</code>
+    </MissingClosureReturnType>
+    <MissingConstructor occurrences="1">
+      <code>$sessionContainer</code>
+    </MissingConstructor>
+    <MixedArgument occurrences="6">
+      <code>$errors</code>
+      <code>$post</code>
+      <code>$postFiles</code>
+      <code>$postOther</code>
+      <code>$previousFiles</code>
+      <code>$previousFiles</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$name</code>
+      <code>$name</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="21">
+      <code>$errors</code>
+      <code>$isValid</code>
+      <code>$messages</code>
+      <code>$messages</code>
+      <code>$post</code>
+      <code>$postFiles</code>
+      <code>$postOther</code>
+      <code>$previousFiles</code>
+      <code>$rawValue</code>
+      <code>$rawValue</code>
+      <code>$redirect</code>
+      <code>$redirector</code>
+      <code>$redirector</code>
+      <code>$request</code>
+      <code>$request</code>
+      <code>$response</code>
+      <code>$response</code>
+      <code>$retVal</code>
+      <code>$returnValues[$name]</code>
+      <code>$routeMatch</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>Response</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="14">
+      <code>get</code>
+      <code>getFiles</code>
+      <code>getMatchedRouteName</code>
+      <code>getMessages</code>
+      <code>getMessages</code>
+      <code>getPost</code>
+      <code>getRouteMatch</code>
+      <code>isPost</code>
+      <code>setStatusCode</code>
+      <code>setStatusCode</code>
+      <code>toArray</code>
+      <code>toArray</code>
+      <code>toRoute</code>
+      <code>toUrl</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="2">
+      <code>$response</code>
+      <code>$response</code>
+    </MixedReturnStatement>
+    <NullableReturnStatement occurrences="2"/>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$data</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$controller</code>
+      <code>$redirect</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="3">
+      <code>getEvent</code>
+      <code>getRequest</code>
+      <code>getRequest</code>
+    </PossiblyNullReference>
+    <UndefinedClass occurrences="1">
+      <code>Redirect</code>
+    </UndefinedClass>
+    <UndefinedInterfaceMethod occurrences="3">
+      <code>getEvent</code>
+      <code>getRequest</code>
+      <code>getRequest</code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Module.php">
+    <MixedArrayOffset occurrences="1"/>
+    <UndefinedClass occurrences="1">
+      <code>\Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet</code>
+    </UndefinedClass>
+  </file>
+  <file src="test/CommonSetupTrait.php">
+    <MissingConstructor occurrences="12">
+      <code>$collection</code>
+      <code>$collection</code>
+      <code>$controller</code>
+      <code>$controller</code>
+      <code>$event</code>
+      <code>$event</code>
+      <code>$form</code>
+      <code>$form</code>
+      <code>$plugin</code>
+      <code>$plugin</code>
+      <code>$request</code>
+      <code>$request</code>
+    </MissingConstructor>
+  </file>
+  <file src="test/FilePostRedirectGetTest.php">
+    <MixedArgument occurrences="4">
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="5">
+      <code>$data['test_collection'][0]</code>
+      <code>$data['test_collection'][0]</code>
+      <code>$data['test_collection'][1]</code>
+      <code>$data['test_collection'][1]</code>
+      <code>$messages['postval1']['isEmpty']</code>
+    </MixedArrayAccess>
+    <PossiblyInvalidArrayAccess occurrences="8">
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+      <code>$data['test_collection']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyInvalidMethodCall occurrences="7">
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+    </PossiblyInvalidMethodCall>
+    <PossiblyNullArgument occurrences="2">
+      <code>$routeMatch</code>
+      <code>$this-&gt;request</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="10">
+      <code>setMatchedRouteName</code>
+      <code>setMatchedRouteName</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+      <code>setMethod</code>
+    </PossiblyNullReference>
+    <UndefinedMethod occurrences="7">
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+      <code>getUri</code>
+    </UndefinedMethod>
+  </file>
+  <file src="test/FilePrgDataMergingTest.php">
+    <MixedArgument occurrences="3">
+      <code>$data['collection'][0]['file']['tmp_name']</code>
+      <code>$data['collection'][0]['file']['tmp_name']</code>
+      <code>$message</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$data['collection'][0]</code>
+      <code>$data['collection'][0]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$message</code>
+    </MixedAssignment>
+    <PossiblyInvalidArrayAccess occurrences="2">
+      <code>$data['collection']</code>
+      <code>$data['collection']</code>
+    </PossiblyInvalidArrayAccess>
+    <PossiblyNullArgument occurrences="1">
+      <code>$this-&gt;request</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="1">
+      <code>setMethod</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="test/TestAsset/DisablePhpUploadChecks.php">
+    <UnusedParam occurrences="1">
+      <code>$filename</code>
+    </UnusedParam>
+  </file>
+  <file src="test/TestAsset/InputFilterProviderFieldset.php">
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>InputFilterProviderFieldset</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedDocblockClass occurrences="1">
+      <code>array|ArrayAccess</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="test/TestAsset/LinksFieldset.php">
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="test/TestAsset/SampleController.php">
+    <InvalidReturnType occurrences="1">
+      <code>notFoundAction</code>
+    </InvalidReturnType>
+  </file>
+  <file src="test/TestAsset/TestFieldset.php">
+    <LessSpecificImplementedReturnType occurrences="1">
+      <code>array</code>
+    </LessSpecificImplementedReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$options</code>
+    </PossiblyInvalidArgument>
+  </file>
+</files>

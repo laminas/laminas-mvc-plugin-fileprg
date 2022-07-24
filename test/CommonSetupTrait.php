@@ -62,10 +62,10 @@ trait CommonSetupTrait
         $this->controller = new TestAsset\SampleController();
         $this->request    = new Request();
         $this->event      = new MvcEvent();
-        $this->routeMatch = new RouteMatch(['controller' => 'controller-sample', 'action' => 'postPage']);
+        $routeMatch       = new RouteMatch(['controller' => 'controller-sample', 'action' => 'postPage']);
 
         $this->event->setRequest($this->request);
-        $this->event->setRouteMatch($this->routeMatch);
+        $this->event->setRouteMatch($routeMatch);
         $this->event->setRouter($router);
 
         $this->controller->setEvent($this->event);

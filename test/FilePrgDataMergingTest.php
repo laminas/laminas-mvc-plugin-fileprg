@@ -23,13 +23,13 @@ class FilePrgDataMergingTest extends TestCase
 {
     use CommonSetupTrait;
 
-    public function disablePhpUploadCapabilities()
+    public function disablePhpUploadCapabilities(): void
     {
         require_once __DIR__ . '/TestAsset/DisablePhpUploadChecks.php';
         require_once __DIR__ . '/TestAsset/DisablePhpMoveUploadedFileChecks.php';
     }
 
-    public function testCorrectInputDataMerging()
+    public function testCorrectInputDataMerging(): void
     {
         $this->disablePhpUploadCapabilities();
 
