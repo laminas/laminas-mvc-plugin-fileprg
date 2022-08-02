@@ -332,16 +332,16 @@
         },
         {
             "name": "laminas/laminas-form",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-form.git",
-                "reference": "0ca41651cee8486cef68b6e0281ef9be99379c78"
+                "reference": "cd3f9d3e345b075d34793e46b0759a4dfd12f674"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-form/zipball/0ca41651cee8486cef68b6e0281ef9be99379c78",
-                "reference": "0ca41651cee8486cef68b6e0281ef9be99379c78",
+                "url": "https://api.github.com/repos/laminas/laminas-form/zipball/cd3f9d3e345b075d34793e46b0759a4dfd12f674",
+                "reference": "cd3f9d3e345b075d34793e46b0759a4dfd12f674",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-07-27T16:32:07+00:00"
+            "time": "2022-08-01T09:48:44+00:00"
         },
         {
             "name": "laminas/laminas-http",
