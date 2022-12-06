@@ -30,7 +30,7 @@
         }
     },
     "require": {
-        "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
         "laminas/laminas-filter": "^2.13.1",
         "laminas/laminas-form": "^3.1",
         "laminas/laminas-inputfilter": "^2.13",
