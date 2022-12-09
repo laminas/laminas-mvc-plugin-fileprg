@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
   <file src="src/FilePostRedirectGet.php">
     <DocblockTypeContradiction occurrences="3">
       <code>! $this-&gt;sessionContainer</code>
@@ -117,7 +117,6 @@
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
-    <MixedArrayOffset occurrences="1"/>
     <UndefinedClass occurrences="1">
       <code>\Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet</code>
     </UndefinedClass>
@@ -145,11 +144,15 @@
       <code>$data['test_collection']</code>
       <code>$data['test_collection']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="9">
       <code>$data['test_collection'][0]</code>
       <code>$data['test_collection'][0]</code>
+      <code>$data['test_collection'][0]['test_field']</code>
+      <code>$data['test_collection'][0]['test_field']</code>
       <code>$data['test_collection'][1]</code>
       <code>$data['test_collection'][1]</code>
+      <code>$data['test_collection'][1]['test_field']</code>
+      <code>$data['test_collection'][1]['test_field']</code>
       <code>$messages['postval1']['isEmpty']</code>
     </MixedArrayAccess>
     <PossiblyInvalidArrayAccess occurrences="8">
@@ -203,9 +206,13 @@
       <code>$data['collection'][0]['file']['tmp_name']</code>
       <code>$message</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="6">
       <code>$data['collection'][0]</code>
       <code>$data['collection'][0]</code>
+      <code>$data['collection'][0]['file']</code>
+      <code>$data['collection'][0]['file']</code>
+      <code>$data['collection'][0]['file']['tmp_name']</code>
+      <code>$data['collection'][0]['file']['tmp_name']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$message</code>
@@ -230,9 +237,9 @@
     <LessSpecificImplementedReturnType occurrences="1">
       <code>array</code>
     </LessSpecificImplementedReturnType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>InputFilterProviderFieldset</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$options</code>
+    </PossiblyInvalidArgument>
     <UndefinedDocblockClass occurrences="1">
       <code>array|ArrayAccess</code>
     </UndefinedDocblockClass>
