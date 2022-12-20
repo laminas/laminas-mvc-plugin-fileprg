@@ -172,7 +172,7 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @return FilePostRedirectGet
+     * @return $this
      */
     public function setSessionContainer(Container $container)
     {
@@ -181,9 +181,9 @@ class FilePostRedirectGet extends AbstractPlugin
     }
 
     /**
-     * @param  string $property
+     * @param  non-empty-string $property
      * @param  mixed  $value
-     * @return FilePostRedirectGet
+     * @return $this
      */
     protected function setProtectedFormProperty(FormInterface $form, $property, $value)
     {
