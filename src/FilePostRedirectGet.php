@@ -189,7 +189,6 @@ class FilePostRedirectGet extends AbstractPlugin
     {
         $formClass = new ReflectionClass($form);
         $property  = $formClass->getProperty($property);
-        $property->setAccessible(true);
         $property->setValue($form, $value);
         return $this;
     }
