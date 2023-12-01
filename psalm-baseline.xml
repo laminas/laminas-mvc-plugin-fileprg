@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="src/FilePostRedirectGet.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>! $this-&gt;sessionContainer</code>
-      <code>$this-&gt;sessionContainer</code>
+    <DocblockTypeContradiction>
+      <code><![CDATA[! $this->sessionContainer]]></code>
+      <code><![CDATA[$this->sessionContainer]]></code>
       <code>null === $redirect</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="1">
+    <InvalidArgument>
       <code>$post</code>
     </InvalidArgument>
-    <InvalidNullableReturnType occurrences="2">
+    <InvalidNullableReturnType>
       <code>array</code>
       <code>array</code>
     </InvalidNullableReturnType>
-    <InvalidReturnStatement occurrences="1">
+    <InvalidReturnStatement>
       <code>$post</code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
+    <InvalidReturnType>
       <code>bool|array</code>
     </InvalidReturnType>
-    <MissingClosureParamType occurrences="8">
+    <MissingClosureParamType>
       <code>$input</code>
       <code>$input</code>
       <code>$input</code>
@@ -29,14 +29,15 @@
       <code>$value</code>
       <code>$value</code>
     </MissingClosureParamType>
-    <MissingClosureReturnType occurrences="2">
+    <MissingClosureReturnType>
       <code>function ($input, $value) {</code>
       <code>function ($input, $value) {</code>
     </MissingClosureReturnType>
-    <MissingConstructor occurrences="1">
+    <MissingConstructor>
       <code>$sessionContainer</code>
     </MissingConstructor>
-    <MixedArgument occurrences="6">
+    <MixedArgument>
+      <code>$data</code>
       <code>$errors</code>
       <code>$post</code>
       <code>$postFiles</code>
@@ -44,11 +45,8 @@
       <code>$previousFiles</code>
       <code>$previousFiles</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$name</code>
-      <code>$name</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment>
+      <code>$data</code>
       <code>$errors</code>
       <code>$isValid</code>
       <code>$messages</code>
@@ -71,10 +69,10 @@
       <code>$routeMatch</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType>
       <code>Response</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="14">
+    <MixedMethodCall>
       <code>get</code>
       <code>getFiles</code>
       <code>getMatchedRouteName</code>
@@ -90,39 +88,77 @@
       <code>toRoute</code>
       <code>toUrl</code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="2">
+    <MixedReturnStatement>
       <code>$response</code>
       <code>$response</code>
     </MixedReturnStatement>
-    <NullableReturnStatement occurrences="2"/>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$data</code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
+    <NullableReturnStatement>
+      <code><![CDATA[$this->traverseInputs(
+            $inputFilter,
+            $data,
+            function ($input, $value) {
+                $messages = $input->getMessages();
+                if (is_array($value) && $input instanceof FileInput && empty($messages)) {
+                    $rawValue = $input->getRawValue();
+                    if (
+                        (isset($rawValue['error']) && $rawValue['error'] !== UPLOAD_ERR_NO_FILE)
+                        || (isset($rawValue[0]['error']) && $rawValue[0]['error'] !== UPLOAD_ERR_NO_FILE)
+                    ) {
+                        return $value;
+                    }
+                }
+                return;
+            }
+        )]]></code>
+      <code><![CDATA[$this->traverseInputs(
+            $inputFilter,
+            $data,
+            function ($input, $value) {
+                $messages = $input->getMessages();
+                if (is_array($value) && $input instanceof FileInput && empty($messages)) {
+                    $rawValue = $input->getRawValue();
+                    if (
+                        (isset($rawValue['error']) && $rawValue['error'] === UPLOAD_ERR_NO_FILE)
+                        || (isset($rawValue[0]['error']) && $rawValue[0]['error'] === UPLOAD_ERR_NO_FILE)
+                    ) {
+                        return $value;
+                    }
+                }
+                return;
+            }
+        )]]></code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument>
       <code>$controller</code>
       <code>$redirect</code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="3">
+    <PossiblyNullReference>
       <code>getEvent</code>
       <code>getRequest</code>
       <code>getRequest</code>
     </PossiblyNullReference>
-    <UndefinedClass occurrences="1">
+    <PossiblyUnusedMethod>
+      <code>setSessionContainer</code>
+    </PossiblyUnusedMethod>
+    <UndefinedClass>
       <code>Redirect</code>
     </UndefinedClass>
-    <UndefinedInterfaceMethod occurrences="3">
+    <UndefinedInterfaceMethod>
       <code>getEvent</code>
       <code>getRequest</code>
       <code>getRequest</code>
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
-    <UndefinedClass occurrences="1">
+    <UndefinedClass>
       <code>\Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet</code>
     </UndefinedClass>
+    <UnusedClass>
+      <code>Module</code>
+    </UnusedClass>
   </file>
   <file src="test/CommonSetupTrait.php">
-    <MissingConstructor occurrences="12">
+    <MissingConstructor>
       <code>$collection</code>
       <code>$collection</code>
       <code>$controller</code>
@@ -138,34 +174,36 @@
     </MissingConstructor>
   </file>
   <file src="test/FilePostRedirectGetTest.php">
-    <MixedArgument occurrences="4">
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
+    <MixedArgument>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="9">
-      <code>$data['test_collection'][0]</code>
-      <code>$data['test_collection'][0]</code>
-      <code>$data['test_collection'][0]['test_field']</code>
-      <code>$data['test_collection'][0]['test_field']</code>
-      <code>$data['test_collection'][1]</code>
-      <code>$data['test_collection'][1]</code>
-      <code>$data['test_collection'][1]['test_field']</code>
-      <code>$data['test_collection'][1]['test_field']</code>
-      <code>$messages['postval1']['isEmpty']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection']]]></code>
+      <code><![CDATA[$data['test_collection'][0]]]></code>
+      <code><![CDATA[$data['test_collection'][0]]]></code>
+      <code><![CDATA[$data['test_collection'][0]['test_field']]]></code>
+      <code><![CDATA[$data['test_collection'][0]['test_field']]]></code>
+      <code><![CDATA[$data['test_collection'][1]]]></code>
+      <code><![CDATA[$data['test_collection'][1]]]></code>
+      <code><![CDATA[$data['test_collection'][1]['test_field']]]></code>
+      <code><![CDATA[$data['test_collection'][1]['test_field']]]></code>
+      <code><![CDATA[$messages['postval1']['isEmpty']]]></code>
     </MixedArrayAccess>
-    <PossiblyInvalidArrayAccess occurrences="8">
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-      <code>$data['test_collection']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidMethodCall occurrences="7">
+    <MixedAssignment>
+      <code>$data</code>
+      <code>$data</code>
+    </MixedAssignment>
+    <PossiblyInvalidMethodCall>
       <code>getUri</code>
       <code>getUri</code>
       <code>getUri</code>
@@ -174,11 +212,11 @@
       <code>getUri</code>
       <code>getUri</code>
     </PossiblyInvalidMethodCall>
-    <PossiblyNullArgument occurrences="2">
+    <PossiblyNullArgument>
       <code>$routeMatch</code>
-      <code>$this-&gt;request</code>
+      <code><![CDATA[$this->request]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="10">
+    <PossiblyNullReference>
       <code>setMatchedRouteName</code>
       <code>setMatchedRouteName</code>
       <code>setMethod</code>
@@ -190,7 +228,7 @@
       <code>setMethod</code>
       <code>setMethod</code>
     </PossiblyNullReference>
-    <UndefinedMethod occurrences="7">
+    <UndefinedMethod>
       <code>getUri</code>
       <code>getUri</code>
       <code>getUri</code>
@@ -201,64 +239,70 @@
     </UndefinedMethod>
   </file>
   <file src="test/FilePrgDataMergingTest.php">
-    <MixedArgument occurrences="3">
-      <code>$data['collection'][0]['file']['tmp_name']</code>
-      <code>$data['collection'][0]['file']['tmp_name']</code>
+    <MixedArgument>
+      <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
+      <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
       <code>$message</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$data['collection'][0]</code>
-      <code>$data['collection'][0]</code>
-      <code>$data['collection'][0]['file']</code>
-      <code>$data['collection'][0]['file']</code>
-      <code>$data['collection'][0]['file']['tmp_name']</code>
-      <code>$data['collection'][0]['file']['tmp_name']</code>
+    <MixedArrayAccess>
+      <code><![CDATA[$data['collection']]]></code>
+      <code><![CDATA[$data['collection']]]></code>
+      <code><![CDATA[$data['collection'][0]]]></code>
+      <code><![CDATA[$data['collection'][0]]]></code>
+      <code><![CDATA[$data['collection'][0]['file']]]></code>
+      <code><![CDATA[$data['collection'][0]['file']]]></code>
+      <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
+      <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment>
+      <code>$data</code>
       <code>$message</code>
     </MixedAssignment>
-    <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$data['collection']</code>
-      <code>$data['collection']</code>
-    </PossiblyInvalidArrayAccess>
-    <PossiblyNullArgument occurrences="1">
-      <code>$this-&gt;request</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->request]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="1">
+    <PossiblyNullReference>
       <code>setMethod</code>
     </PossiblyNullReference>
   </file>
   <file src="test/TestAsset/DisablePhpUploadChecks.php">
-    <UnusedParam occurrences="1">
+    <UnusedParam>
       <code>$filename</code>
     </UnusedParam>
   </file>
   <file src="test/TestAsset/InputFilterProviderFieldset.php">
-    <LessSpecificImplementedReturnType occurrences="1">
+    <LessSpecificImplementedReturnType>
       <code>array</code>
     </LessSpecificImplementedReturnType>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument>
       <code>$options</code>
     </PossiblyInvalidArgument>
-    <UndefinedDocblockClass occurrences="1">
+    <PossiblyUnusedParam>
+      <code>$name</code>
+      <code>$options</code>
+    </PossiblyUnusedParam>
+    <UndefinedDocblockClass>
       <code>array|ArrayAccess</code>
     </UndefinedDocblockClass>
   </file>
   <file src="test/TestAsset/LinksFieldset.php">
-    <LessSpecificImplementedReturnType occurrences="1">
+    <LessSpecificImplementedReturnType>
       <code>array</code>
     </LessSpecificImplementedReturnType>
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/TestAsset/SampleController.php">
-    <InvalidReturnType occurrences="1">
+    <InvalidReturnType>
       <code>notFoundAction</code>
     </InvalidReturnType>
   </file>
   <file src="test/TestAsset/TestFieldset.php">
-    <LessSpecificImplementedReturnType occurrences="1">
+    <LessSpecificImplementedReturnType>
       <code>array</code>
     </LessSpecificImplementedReturnType>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument>
       <code>$options</code>
     </PossiblyInvalidArgument>
   </file>
