@@ -1,96 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
+<files psalm-version="6.20.4@e53db692e6600cf729c88190b892bcf96e1c550e">
   <file src="src/FilePostRedirectGet.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[FilePostRedirectGet]]></code>
+    </ClassMustBeFinal>
     <DocblockTypeContradiction>
       <code><![CDATA[! $this->sessionContainer]]></code>
       <code><![CDATA[$this->sessionContainer]]></code>
-      <code>null === $redirect</code>
+      <code><![CDATA[null === $redirect]]></code>
     </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code>$post</code>
-    </InvalidArgument>
     <InvalidNullableReturnType>
-      <code>array</code>
-      <code>array</code>
+      <code><![CDATA[array]]></code>
+      <code><![CDATA[array]]></code>
     </InvalidNullableReturnType>
-    <InvalidReturnStatement>
-      <code>$post</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>bool|array</code>
-    </InvalidReturnType>
     <MissingClosureParamType>
-      <code>$input</code>
-      <code>$input</code>
-      <code>$input</code>
-      <code>$input</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
     </MissingClosureParamType>
     <MissingClosureReturnType>
-      <code>function ($input, $value) {</code>
-      <code>function ($input, $value) {</code>
+      <code><![CDATA[function ($input, $value) {]]></code>
+      <code><![CDATA[function ($input, $value) {]]></code>
     </MissingClosureReturnType>
     <MissingConstructor>
-      <code>$sessionContainer</code>
+      <code><![CDATA[$sessionContainer]]></code>
     </MissingConstructor>
     <MixedArgument>
-      <code>$data</code>
-      <code>$errors</code>
-      <code>$post</code>
-      <code>$postFiles</code>
-      <code>$postOther</code>
-      <code>$previousFiles</code>
-      <code>$previousFiles</code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$errors]]></code>
+      <code><![CDATA[$post]]></code>
+      <code><![CDATA[$postFiles]]></code>
+      <code><![CDATA[$postOther]]></code>
+      <code><![CDATA[$previousFiles]]></code>
+      <code><![CDATA[$previousFiles]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$data</code>
-      <code>$errors</code>
-      <code>$isValid</code>
-      <code>$messages</code>
-      <code>$messages</code>
-      <code>$post</code>
-      <code>$postFiles</code>
-      <code>$postOther</code>
-      <code>$previousFiles</code>
-      <code>$rawValue</code>
-      <code>$rawValue</code>
-      <code>$redirect</code>
-      <code>$redirector</code>
-      <code>$redirector</code>
-      <code>$request</code>
-      <code>$request</code>
-      <code>$response</code>
-      <code>$response</code>
-      <code>$retVal</code>
-      <code>$returnValues[$name]</code>
-      <code>$routeMatch</code>
-      <code>$value</code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$errors]]></code>
+      <code><![CDATA[$isValid]]></code>
+      <code><![CDATA[$messages]]></code>
+      <code><![CDATA[$messages]]></code>
+      <code><![CDATA[$post]]></code>
+      <code><![CDATA[$postFiles]]></code>
+      <code><![CDATA[$postOther]]></code>
+      <code><![CDATA[$previousFiles]]></code>
+      <code><![CDATA[$rawValue]]></code>
+      <code><![CDATA[$rawValue]]></code>
+      <code><![CDATA[$redirect]]></code>
+      <code><![CDATA[$redirector]]></code>
+      <code><![CDATA[$redirector]]></code>
+      <code><![CDATA[$request]]></code>
+      <code><![CDATA[$request]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$retVal]]></code>
+      <code><![CDATA[$returnValues[$name]]]></code>
+      <code><![CDATA[$routeMatch]]></code>
+      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>Response</code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
-      <code>get</code>
-      <code>getFiles</code>
-      <code>getMatchedRouteName</code>
-      <code>getMessages</code>
-      <code>getMessages</code>
-      <code>getPost</code>
-      <code>getRouteMatch</code>
-      <code>isPost</code>
-      <code>setStatusCode</code>
-      <code>setStatusCode</code>
-      <code>toArray</code>
-      <code>toArray</code>
-      <code>toRoute</code>
-      <code>toUrl</code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[getFiles]]></code>
+      <code><![CDATA[getMatchedRouteName]]></code>
+      <code><![CDATA[getMessages]]></code>
+      <code><![CDATA[getMessages]]></code>
+      <code><![CDATA[getPost]]></code>
+      <code><![CDATA[getRouteMatch]]></code>
+      <code><![CDATA[isPost]]></code>
+      <code><![CDATA[setStatusCode]]></code>
+      <code><![CDATA[setStatusCode]]></code>
+      <code><![CDATA[toArray]]></code>
+      <code><![CDATA[toArray]]></code>
+      <code><![CDATA[toRoute]]></code>
+      <code><![CDATA[toUrl]]></code>
     </MixedMethodCall>
     <MixedReturnStatement>
-      <code>$response</code>
-      <code>$response</code>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
     </MixedReturnStatement>
     <NullableReturnStatement>
       <code><![CDATA[$this->traverseInputs(
@@ -129,51 +120,57 @@
         )]]></code>
     </NullableReturnStatement>
     <PossiblyNullArgument>
-      <code>$controller</code>
-      <code>$redirect</code>
+      <code><![CDATA[$controller]]></code>
+      <code><![CDATA[$redirect]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
-      <code>getEvent</code>
-      <code>getRequest</code>
-      <code>getRequest</code>
+      <code><![CDATA[getEvent]]></code>
+      <code><![CDATA[getRequest]]></code>
+      <code><![CDATA[getRequest]]></code>
     </PossiblyNullReference>
     <PossiblyUnusedMethod>
-      <code>setSessionContainer</code>
+      <code><![CDATA[setSessionContainer]]></code>
     </PossiblyUnusedMethod>
     <UndefinedClass>
-      <code>Redirect</code>
+      <code><![CDATA[Redirect]]></code>
     </UndefinedClass>
     <UndefinedInterfaceMethod>
-      <code>getEvent</code>
-      <code>getRequest</code>
-      <code>getRequest</code>
+      <code><![CDATA[getEvent]]></code>
+      <code><![CDATA[getRequest]]></code>
+      <code><![CDATA[getRequest]]></code>
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Module.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Module]]></code>
+    </ClassMustBeFinal>
     <UndefinedClass>
-      <code>\Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet</code>
+      <code><![CDATA[\Zend\Mvc\Plugin\FilePrg\FilePostRedirectGet]]></code>
     </UndefinedClass>
     <UnusedClass>
-      <code>Module</code>
+      <code><![CDATA[Module]]></code>
     </UnusedClass>
   </file>
   <file src="test/CommonSetupTrait.php">
     <MissingConstructor>
-      <code>$collection</code>
-      <code>$collection</code>
-      <code>$controller</code>
-      <code>$controller</code>
-      <code>$event</code>
-      <code>$event</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$plugin</code>
-      <code>$plugin</code>
-      <code>$request</code>
-      <code>$request</code>
+      <code><![CDATA[$collection]]></code>
+      <code><![CDATA[$collection]]></code>
+      <code><![CDATA[$controller]]></code>
+      <code><![CDATA[$controller]]></code>
+      <code><![CDATA[$event]]></code>
+      <code><![CDATA[$event]]></code>
+      <code><![CDATA[$form]]></code>
+      <code><![CDATA[$form]]></code>
+      <code><![CDATA[$plugin]]></code>
+      <code><![CDATA[$plugin]]></code>
+      <code><![CDATA[$request]]></code>
+      <code><![CDATA[$request]]></code>
     </MissingConstructor>
   </file>
   <file src="test/FilePostRedirectGetTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[FilePostRedirectGetTest]]></code>
+    </ClassMustBeFinal>
     <MixedArgument>
       <code><![CDATA[$data['test_collection']]]></code>
       <code><![CDATA[$data['test_collection']]]></code>
@@ -200,49 +197,52 @@
       <code><![CDATA[$messages['postval1']['isEmpty']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code>$data</code>
-      <code>$data</code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$data]]></code>
     </MixedAssignment>
     <PossiblyInvalidMethodCall>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
     </PossiblyInvalidMethodCall>
     <PossiblyNullArgument>
-      <code>$routeMatch</code>
+      <code><![CDATA[$routeMatch]]></code>
       <code><![CDATA[$this->request]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
-      <code>setMatchedRouteName</code>
-      <code>setMatchedRouteName</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
-      <code>setMethod</code>
+      <code><![CDATA[setMatchedRouteName]]></code>
+      <code><![CDATA[setMatchedRouteName]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
+      <code><![CDATA[setMethod]]></code>
     </PossiblyNullReference>
     <UndefinedMethod>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
-      <code>getUri</code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
+      <code><![CDATA[getUri]]></code>
     </UndefinedMethod>
   </file>
   <file src="test/FilePrgDataMergingTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[FilePrgDataMergingTest]]></code>
+    </ClassMustBeFinal>
     <MixedArgument>
       <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
       <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
-      <code>$message</code>
+      <code><![CDATA[$message]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$data['collection']]]></code>
@@ -255,55 +255,89 @@
       <code><![CDATA[$data['collection'][0]['file']['tmp_name']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code>$data</code>
-      <code>$message</code>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$message]]></code>
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->request]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
-      <code>setMethod</code>
+      <code><![CDATA[setMethod]]></code>
     </PossiblyNullReference>
   </file>
   <file src="test/TestAsset/DisablePhpUploadChecks.php">
     <UnusedParam>
-      <code>$filename</code>
+      <code><![CDATA[$filename]]></code>
     </UnusedParam>
   </file>
   <file src="test/TestAsset/InputFilterProviderFieldset.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[InputFilterProviderFieldset]]></code>
+    </ClassMustBeFinal>
     <LessSpecificImplementedReturnType>
-      <code>array</code>
+      <code><![CDATA[array]]></code>
     </LessSpecificImplementedReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getInputFilterSpecification()]]></code>
+    </MissingOverrideAttribute>
     <PossiblyInvalidArgument>
-      <code>$options</code>
+      <code><![CDATA[$options]]></code>
     </PossiblyInvalidArgument>
     <PossiblyUnusedParam>
-      <code>$name</code>
-      <code>$options</code>
+      <code><![CDATA[$name]]></code>
+      <code><![CDATA[$options]]></code>
     </PossiblyUnusedParam>
     <UndefinedDocblockClass>
-      <code>array|ArrayAccess</code>
+      <code><![CDATA[array|ArrayAccess]]></code>
     </UndefinedDocblockClass>
   </file>
   <file src="test/TestAsset/LinksFieldset.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[LinksFieldset]]></code>
+    </ClassMustBeFinal>
     <LessSpecificImplementedReturnType>
-      <code>array</code>
+      <code><![CDATA[array]]></code>
     </LessSpecificImplementedReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getInputFilterSpecification()]]></code>
+    </MissingOverrideAttribute>
     <PossiblyUnusedMethod>
-      <code>__construct</code>
+      <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="test/TestAsset/SampleController.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[SampleController]]></code>
+    </ClassMustBeFinal>
     <InvalidReturnType>
-      <code>notFoundAction</code>
+      <code><![CDATA[notFoundAction]]></code>
     </InvalidReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notFoundAction()]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="test/TestAsset/TestFieldset.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[TestFieldset]]></code>
+    </ClassMustBeFinal>
     <LessSpecificImplementedReturnType>
-      <code>array</code>
+      <code><![CDATA[array]]></code>
     </LessSpecificImplementedReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getInputFilterSpecification()]]></code>
+    </MissingOverrideAttribute>
     <PossiblyInvalidArgument>
-      <code>$options</code>
+      <code><![CDATA[$options]]></code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/bootstrap.php">
+    <PossiblyFalseArgument>
+      <code><![CDATA[$renameUploadClassFile]]></code>
+      <code><![CDATA[$uploadFileClassFile]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$renameUploadClassFile]]></code>
+      <code><![CDATA[$uploadFileClassFile]]></code>
+    </PossiblyNullArgument>
   </file>
 </files>
