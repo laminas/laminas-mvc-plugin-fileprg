@@ -98,7 +98,7 @@
                         return $value;
                     }
                 }
-                return;
+                return null;
             }
         )]]></code>
       <code><![CDATA[$this->traverseInputs(
@@ -115,7 +115,7 @@
                         return $value;
                     }
                 }
-                return;
+                return null;
             }
         )]]></code>
     </NullableReturnStatement>
