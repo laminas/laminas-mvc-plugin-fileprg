@@ -247,7 +247,7 @@ class FilePostRedirectGet extends AbstractPlugin
                         return $value;
                     }
                 }
-                return;
+                return null;
             }
         );
     }
@@ -274,7 +274,7 @@ class FilePostRedirectGet extends AbstractPlugin
                         return $value;
                     }
                 }
-                return;
+                return null;
             }
         );
     }
